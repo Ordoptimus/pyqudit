@@ -1,0 +1,36 @@
+import setuptools
+
+with open("README.md", "r") as fh:  #removed encoding="utf-8"
+    long_description = fh.read()
+
+requirements = ["numpy"]
+
+setuptools.setup(
+    name="pyqudit",
+    version="0.0.4",
+    author="The Quanteam",
+    author_email="orodaux@student.sfit.ac.in",
+    description="Test package of Qudit",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/ordoptimus/pyqudit",
+    project_urls={
+        "Bug Tracker": "https://github.com/ordoptimus/pyqudit/issues"
+    },
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    packages=setuptools.find_packages(   #removed where='pyqudit',
+        exclude=("tests",) #try [] instead of ()
+        ),
+    package_dir = {"pyqudit":"pyqudit"},
+    install_requires=requirements,
+    python_requires=">=3.6",
+    entry_points={
+        "console_scripts": [
+            "pyqudit=qudit.__main__:main",
+        ]
+    },
+)
