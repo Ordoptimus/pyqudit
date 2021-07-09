@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Gate Functions &mdash; PyQudit 0.0.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pauli Matrix Functions" href="pauli.html" />
+    <link rel="prev" title="PyQudit Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyQudit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gate Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cx-gate">CX gate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cxdgen">cxdGen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cxdsup">cxdSup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cxdsupfor">cxdSupFor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cx-drag-gate">CX Drag Gate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cxddraggen">cxdDragGen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cxdragdsup">cxDragdSup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gxor-gate">GXOR Gate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyQudit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Gate Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/gates.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gate-functions">
+<h1>Gate Functions<a class="headerlink" href="#gate-functions" title="Permalink to this headline">¶</a></h1>
+<p>All the gate functions available in PyQudit are documented here.</p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#cx-gate" id="id1">CX gate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cxdgen" id="id2">cxdGen</a></p></li>
+<li><p><a class="reference internal" href="#cxdsup" id="id3">cxdSup</a></p></li>
+<li><p><a class="reference internal" href="#cxdsupfor" id="id4">cxdSupFor</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cx-drag-gate" id="id5">CX Drag Gate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cxddraggen" id="id6">cxdDragGen</a></p></li>
+<li><p><a class="reference internal" href="#cxdragdsup" id="id7">cxDragdSup</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#gxor-gate" id="id8">GXOR Gate</a></p></li>
+</ul>
+</div>
+<div class="section" id="cx-gate">
+<h2><a class="toc-backref" href="#id1">CX gate</a><a class="headerlink" href="#cx-gate" title="Permalink to this headline">¶</a></h2>
+<p>The functions for CX (CNOT) gate implementations.
+The CX gate is a fundamental gate of both qubit and qudit logics
+and essential for most kinds of qudit manipulations.</p>
+<div class="section" id="cxdgen">
+<h3><a class="toc-backref" href="#id2">cxdGen</a><a class="headerlink" href="#cxdgen" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdGen(d,qtk1,qtk2)</span></code></div>
+</div>
+<p>Generalised CX (CNOT) Gate. Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cxdGen</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">[0,1,0,0]</span>
+</pre></div>
+</div>
+<p>Operates in Ket form. Use <code class="docutils literal notranslate"><span class="pre">convKet(d,qt)</span></code> to convert each decimal qudit value to Ket.</p>
+</div>
+<div class="section" id="cxdsup">
+<h3><a class="toc-backref" href="#id3">cxdSup</a><a class="headerlink" href="#cxdsup" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdSup(d,states)</span></code></div>
+</div>
+<p>Standard formulaic implementation of generalised CX, applicable for superposed states.</p>
+</div>
+<div class="section" id="cxdsupfor">
+<h3><a class="toc-backref" href="#id4">cxdSupFor</a><a class="headerlink" href="#cxdsupfor" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdSupFor(d,states)</span></code></div>
+</div>
+<p>Custom, more efficient formulaic implementation of CX with same capabilities as <code class="docutils literal notranslate"><span class="pre">cxdSup</span></code>.</p>
+</div>
+</div>
+<div class="section" id="cx-drag-gate">
+<h2><a class="toc-backref" href="#id5">CX Drag Gate</a><a class="headerlink" href="#cx-drag-gate" title="Permalink to this headline">¶</a></h2>
+<p>The functions for CX Drag gate implementations.
+The CX Drag gate is more commpnly seen in qudit logic
+and required to make compound gates and emulate some aspects of qubit logic gates.</p>
+<div class="section" id="cxddraggen">
+<h3><a class="toc-backref" href="#id6">cxdDragGen</a><a class="headerlink" href="#cxddraggen" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdDragGen(d,qtk1,qtk2)</span></code></div>
+</div>
+<p>Generalised CX Drag Gate not applicable for superposed states.</p>
+</div>
+<div class="section" id="cxdragdsup">
+<h3><a class="toc-backref" href="#id7">cxDragdSup</a><a class="headerlink" href="#cxdragdsup" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxDragdSup(d,qtk)</span></code></div>
+</div>
+<p>Generalised CX Drag Gate applicable for superposed states.</p>
+</div>
+</div>
+<div class="section" id="gxor-gate">
+<h2><a class="toc-backref" href="#id8">GXOR Gate</a><a class="headerlink" href="#gxor-gate" title="Permalink to this headline">¶</a></h2>
+<p>The various formulae for GXOR.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pauli.html" class="btn btn-neutral float-right" title="Pauli Matrix Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="PyQudit Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Aarya Bodhankar, Rutuja Andhale, Nikita Agrawal.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

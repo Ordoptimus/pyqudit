@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PyQudit Documentation &mdash; PyQudit 0.0.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gate Functions" href="gates.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> PyQudit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gate Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PyQudit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PyQudit Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyqudit-documentation">
+<h1>PyQudit Documentation<a class="headerlink" href="#pyqudit-documentation" title="Permalink to this headline">¶</a></h1>
+<p><img alt="PyPIVersion" src="https://img.shields.io/pypi/v/pyqudit?logo=pypi&amp;logoColor=yellow" /> <img alt="GitLanguage" src="https://img.shields.io/github/languages/top/Ordoptimus/pyqudit?color=yellow&amp;logo=python" /> <img alt="PyPIFormat" src="https://img.shields.io/pypi/format/pyqudit" /> <img alt="PyPIImplementation" src="https://img.shields.io/pypi/implementation/pyqudit?color=%23333" /> <img alt="License" src="https://img.shields.io/github/license/Ordoptimus/pyqudit" /></p>
+<p>PyQudit is a Python package for using generalised and universal versions of quantum gates, in N-dimensions. Enables building simple quantum circuit simulations on qudit logic using higher dimensional gates.</p>
+</div>
+<div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="concept">
+<h2>Concept<a class="headerlink" href="#concept" title="Permalink to this headline">¶</a></h2>
+<p>Mainstream QuantumComputing uses qubits which operate in a two dimensional
+Hilber space. Qudits are their higher dimensional equivalents with better
+informaiton density and potential for hgher efficiency.
+PyQudit includes the qudit versions of fundamental quantum gates,
+useable over any dimension<sup>*</sup> as specified by the user.
+It can be used to understand the behaviour of qudit gates as also to build
+higher dimensional circuits for experimentation.</p>
+<p><sup>*refer exceptions</sup></p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>The latest stable version of PyQudit is available on PyPI and can be installed with pip.
+It is recommeded to install in your quantum computing python environment, alongside existing packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pyqudit
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-locally">
+<h2>Build Locally<a class="headerlink" href="#build-locally" title="Permalink to this headline">¶</a></h2>
+<p>Alternatively, you can build the package wheel from source and then install it via pip.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">setuptools</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Ordoptimus</span><span class="o">/</span><span class="n">pyqudit</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">pyqudit</span>
+<span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use">
+<h2>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyqudit.qudit</span> <span class="k">as</span> <span class="nn">pq</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">dir(pq)</span></code> to show all package methods.</p>
+</div>
+<div class="section" id="sample">
+<h2>Sample<a class="headerlink" href="#sample" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyqudit.qudit</span> <span class="k">as</span> <span class="nn">pq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter Dimensions: &#39;</span><span class="p">))</span>
+<span class="go">Enter Dimensions: 4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---CX&#39;s Pauli Matrix---&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">pauli_cxd</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="go">---CX&#39;s Pauli Matrix---</span>
+<span class="go">[[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0]]</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gate Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gates.html#cx-gate">CX gate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gates.html#cx-drag-gate">CX Drag Gate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gates.html#gxor-gate">GXOR Gate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gates.html" class="btn btn-neutral float-right" title="Gate Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Aarya Bodhankar, Rutuja Andhale, Nikita Agrawal.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
