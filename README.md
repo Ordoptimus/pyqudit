@@ -35,5 +35,7 @@ import pyqudit.qudit as pq
 ```dir(pq)```
 
 ### Demo
+Detailed examples available in the Documentation!
 
 ### Documentation
+[link coming soon]
