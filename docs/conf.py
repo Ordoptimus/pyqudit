@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 
 project = 'PyQudit'
 copyright = '2021, Aarya Bodhankar, Rutuja Andhale, Nikita Agrawal'
-author = 'Aarya Bodhankar, Rutuja Andhale, Nikita Agrawal'
+author = 'Aarya Bodhankar'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.5'
