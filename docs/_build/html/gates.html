@@ -96,12 +96,25 @@
 <li class="toctree-l3"><a class="reference internal" href="#cxdsupfor">cxdSupFor</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#cx-drag-gate">CX Drag Gate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cx-drag-gate">CX-Drag Gate</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cxddraggen">cxdDragGen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cxdragdsup">cxDragdSup</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#gxor-gate">GXOR Gate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gxor-gate">GXOR Gate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gxorgen">gxorGen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gxordsup">gXordSup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#swap-gate">SWAP Gate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#swap">swap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hadamard-gate">Hadamard Gate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hdgen">hdGen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hdsup">hdSup</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a></li>
@@ -174,7 +187,10 @@
             
   <div class="section" id="gate-functions">
 <h1>Gate Functions<a class="headerlink" href="#gate-functions" title="Permalink to this headline">¶</a></h1>
-<p>All the gate functions available in PyQudit are documented here.</p>
+<p>All the gate functions available in PyQudit are documented here.
+Since all gates are generalised implementations, the user needs to provide
+the dimension as the parameter <code class="docutils literal notranslate"><span class="pre">d</span></code> in most functions. Unless specified,
+all qudit parameters are in Ket form.</p>
 <div class="contents local topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -185,13 +201,29 @@
 <li><p><a class="reference internal" href="#cxdsupfor" id="id4">cxdSupFor</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#cx-drag-gate" id="id5">CX Drag Gate</a></p>
+<li><p><a class="reference internal" href="#cx-drag-gate" id="id5">CX-Drag Gate</a></p>
 <ul>
 <li><p><a class="reference internal" href="#cxddraggen" id="id6">cxdDragGen</a></p></li>
 <li><p><a class="reference internal" href="#cxdragdsup" id="id7">cxDragdSup</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#gxor-gate" id="id8">GXOR Gate</a></p></li>
+<li><p><a class="reference internal" href="#gxor-gate" id="id8">GXOR Gate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#gxorgen" id="id9">gxorGen</a></p></li>
+<li><p><a class="reference internal" href="#gxordsup" id="id10">gXordSup</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#swap-gate" id="id11">SWAP Gate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#swap" id="id12">swap</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#hadamard-gate" id="id13">Hadamard Gate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hdgen" id="id14">hdGen</a></p></li>
+<li><p><a class="reference internal" href="#hdsup" id="id15">hdSup</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="cx-gate">
@@ -202,53 +234,147 @@ and essential for most kinds of qudit manipulations.</p>
 <div class="section" id="cxdgen">
 <h3><a class="toc-backref" href="#id2">cxdGen</a><a class="headerlink" href="#cxdgen" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdGen(d,qtk1,qtk2)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdGen(d,qudit1,qudit2)</span></code></div>
 </div>
 <p>Generalised CX (CNOT) Gate. Example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cxdGen</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">[0,1,0,0]</span>
 </pre></div>
 </div>
-<p>Operates in Ket form. Use <code class="docutils literal notranslate"><span class="pre">convKet(d,qt)</span></code> to convert each decimal qudit value to Ket.</p>
+<p>Operates in Ket form. If working with decimal values,
+use <code class="docutils literal notranslate"><span class="pre">convKet(d,qt)</span></code> to convert each qudit value to Ket.</p>
 </div>
 <div class="section" id="cxdsup">
 <h3><a class="toc-backref" href="#id3">cxdSup</a><a class="headerlink" href="#cxdsup" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdSup(d,states)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdSup(d,state)</span></code></div>
 </div>
-<p>Standard formulaic implementation of generalised CX, applicable for superposed states.</p>
+<p>Standard formulaic implementation of generalised CX,
+applicable for superposed states. Works using the state matrix form,
+which can be obtained using the <code class="docutils literal notranslate"><span class="pre">stateMat(d,qudit1,qudit2)</span></code> function. Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">statematrix</span> <span class="o">=</span> <span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cxdSup</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">statematrix</span><span class="p">)</span>
+<span class="go">array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="cxdsupfor">
 <h3><a class="toc-backref" href="#id4">cxdSupFor</a><a class="headerlink" href="#cxdsupfor" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdSupFor(d,states)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdSupFor(d,statematrix)</span></code></div>
 </div>
-<p>Custom, more efficient formulaic implementation of CX with same capabilities as <code class="docutils literal notranslate"><span class="pre">cxdSup</span></code>.</p>
+<p>Custom, more efficient formulaic implementation of CX with same capabilities as <code class="docutils literal notranslate"><span class="pre">cxdSup</span></code>.
+Recommended for logic involving higher dimensions. Also involves state matrix form.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">statematrix</span> <span class="o">=</span> <span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cxdSupFor</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">statematrix</span><span class="p">)</span>
+<span class="go">[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="cx-drag-gate">
-<h2><a class="toc-backref" href="#id5">CX Drag Gate</a><a class="headerlink" href="#cx-drag-gate" title="Permalink to this headline">¶</a></h2>
-<p>The functions for CX Drag gate implementations.
-The CX Drag gate is more commpnly seen in qudit logic
-and required to make compound gates and emulate some aspects of qubit logic gates.</p>
+<h2><a class="toc-backref" href="#id5">CX-Drag Gate</a><a class="headerlink" href="#cx-drag-gate" title="Permalink to this headline">¶</a></h2>
+<p>The functions for CX-Drag gate implementations.
+The CX-Drag gate is an inverse of the CX gate and is required in qudit logic
+to make compound gates and emulate some aspects of qubit gates.</p>
 <div class="section" id="cxddraggen">
 <h3><a class="toc-backref" href="#id6">cxdDragGen</a><a class="headerlink" href="#cxddraggen" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdDragGen(d,qtk1,qtk2)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxdDragGen(d,qudit1,qudit2)</span></code></div>
 </div>
-<p>Generalised CX Drag Gate not applicable for superposed states.</p>
+<p>Generalised CX Drag Gate not applicable for superposed states. Formulaic implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cxdDragGen</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">[0, 0, 0, 1]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="cxdragdsup">
 <h3><a class="toc-backref" href="#id7">cxDragdSup</a><a class="headerlink" href="#cxdragdsup" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">cxDragdSup(d,qtk)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cxDragdSup(d,statematrix)</span></code></div>
 </div>
-<p>Generalised CX Drag Gate applicable for superposed states.</p>
+<p>Generalised CX Drag Gate applicable for superposed states.
+Uses a state matrix of the two qudits, instead of their Ket forms.
+Handles superposition well.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">statematrix</span> <span class="o">=</span> <span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cxDragdSup</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">statematrix</span><span class="p">)</span>
+<span class="go">array([0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="gxor-gate">
 <h2><a class="toc-backref" href="#id8">GXOR Gate</a><a class="headerlink" href="#gxor-gate" title="Permalink to this headline">¶</a></h2>
-<p>The various formulae for GXOR.</p>
+<p>The various functions for the GXOR gate, which is used to achieve logic for other gates,
+such as SWAP or the Hermetian CX.</p>
+<div class="section" id="gxorgen">
+<h3><a class="toc-backref" href="#id9">gxorGen</a><a class="headerlink" href="#gxorgen" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gxorGen(d,qudit,qudit2)</span></code></div>
+</div>
+<p>Generalised GXOR gate not applicablefor superposed states. Formulaic implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gxorGen</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">[0,1,0,0]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gxordsup">
+<h3><a class="toc-backref" href="#id10">gXordSup</a><a class="headerlink" href="#gxordsup" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">gXordSup(d,statematrix)</span></code></div>
+</div>
+<p>Generalised implemenr=tation of the GXOR gate, applicable for suprposed states.
+Uses the state matrix form of two qudits.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">statematrix</span> <span class="o">=</span> <span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gXordSup</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">statematrix</span><span class="p">)</span>
+<span class="go">array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="swap-gate">
+<h2><a class="toc-backref" href="#id11">SWAP Gate</a><a class="headerlink" href="#swap-gate" title="Permalink to this headline">¶</a></h2>
+<p>The functions of the SWAP gate, used to swap the states of two qudits,
+akin to its qubit equivalent.</p>
+<div class="section" id="swap">
+<h3><a class="toc-backref" href="#id12">swap</a><a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">swap(d,qudit1,qudit2)</span></code></div>
+</div>
+<p>Generalised swap gate implementation not applicable for superposition.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">swap</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">([1, 0, 0, 0], [0, 1, 0, 0])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hadamard-gate">
+<h2><a class="toc-backref" href="#id13">Hadamard Gate</a><a class="headerlink" href="#hadamard-gate" title="Permalink to this headline">¶</a></h2>
+<p>The functions of the Hadamard gate, one of the fundamental and crucial gates of quantum logic
+used to carry out superposition.</p>
+<div class="section" id="hdgen">
+<h3><a class="toc-backref" href="#id14">hdGen</a><a class="headerlink" href="#hdgen" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hdGen(d,qudit)</span></code></div>
+</div>
+<p>Generalised implementation for all dimensions. Can’t handle superposed states.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hdGen</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">array([ 5.00000000e-01+0.00000000e+00j,  1.63397448e-07+5.00000000e-01j,</span>
+<span class="go">       -5.00000000e-01+3.26794897e-07j, -4.90192345e-07-5.00000000e-01j])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hdsup">
+<h3><a class="toc-backref" href="#id15">hdSup</a><a class="headerlink" href="#hdsup" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">hdSup(d,qudit)</span></code></div>
+</div>
+<p>Generalised implementation for 2<sup>n</sup> dimensions. Handles superposed states.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hdSup</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">array([ 0.5, -0.5,  0.5, -0.5])</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

@@ -2,6 +2,9 @@ Gate Functions
 ==============
 
 All the gate functions available in PyQudit are documented here.
+Since all gates are generalised implementations, the user needs to provide
+the dimension as the parameter ``d`` in most functions. Unless specified,
+all qudit parameters are in Ket form.
 
 .. contents:: Table of Contents
     :local:
@@ -14,45 +17,125 @@ and essential for most kinds of qudit manipulations.
 
 cxdGen
 ******
-| ``cxdGen(d,qtk1,qtk2)``
+| ``cxdGen(d,qudit1,qudit2)``
 
 Generalised CX (CNOT) Gate. Example:
 
 >>> cxdGen(4,[0,1,0,0],[1,0,0,0])
 [0,1,0,0]
 
-Operates in Ket form. Use ``convKet(d,qt)`` to convert each decimal qudit value to Ket.
+Operates in Ket form. If working with decimal values,
+use ``convKet(d,qt)`` to convert each qudit value to Ket.
 
 cxdSup
 ******
-| ``cxdSup(d,states)``
+| ``cxdSup(d,state)``
 
-Standard formulaic implementation of generalised CX, applicable for superposed states.
+Standard formulaic implementation of generalised CX,
+applicable for superposed states. Works using the state matrix form,
+which can be obtained using the ``stateMat(d,qudit1,qudit2)`` function. Example:
+
+>>> statematrix = stateMat(4,[0,1,0,0],[1,0,0,0])
+>>> cxdSup(4,statematrix)
+array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 cxdSupFor
 *********
-| ``cxdSupFor(d,states)``
+| ``cxdSupFor(d,statematrix)``
 
 Custom, more efficient formulaic implementation of CX with same capabilities as ``cxdSup``.
+Recommended for logic involving higher dimensions. Also involves state matrix form.
 
-CX Drag Gate
+>>> statematrix = stateMat(4,[0,1,0,0],[1,0,0,0])
+>>> cxdSupFor(4,statematrix)
+[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+CX-Drag Gate
 ------------
-The functions for CX Drag gate implementations.
-The CX Drag gate is more commpnly seen in qudit logic
-and required to make compound gates and emulate some aspects of qubit logic gates.
+The functions for CX-Drag gate implementations.
+The CX-Drag gate is an inverse of the CX gate and is required in qudit logic
+to make compound gates and emulate some aspects of qubit gates.
 
 cxdDragGen
 **********
-| ``cxdDragGen(d,qtk1,qtk2)``
+| ``cxdDragGen(d,qudit1,qudit2)``
 
-Generalised CX Drag Gate not applicable for superposed states.
+Generalised CX Drag Gate not applicable for superposed states. Formulaic implementation.
+
+>>> cxdDragGen(4,[0,0,1,0],[1,0,0,0])
+[0, 0, 0, 1]
 
 cxDragdSup
 **********
-| ``cxDragdSup(d,qtk)``
+| ``cxDragdSup(d,statematrix)``
 
 Generalised CX Drag Gate applicable for superposed states.
+Uses a state matrix of the two qudits, instead of their Ket forms.
+Handles superposition well.
+
+>>> statematrix = stateMat(4,[0,1,0,0],[1,0,0,0])
+>>> cxDragdSup(4,statematrix)
+array([0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
 
 GXOR Gate
 ---------
-The various formulae for GXOR.
+The various functions for the GXOR gate, which is used to achieve logic for other gates,
+such as SWAP or the Hermetian CX.
+
+gxorGen
+*******
+| ``gxorGen(d,qudit,qudit2)``
+
+Generalised GXOR gate not applicablefor superposed states. Formulaic implementation.
+
+>>> gxorGen(4,[0,1,0,0],[1,0,0,0])
+[0,1,0,0]
+
+gXordSup
+********
+| ``gXordSup(d,statematrix)``
+
+Generalised implemenr=tation of the GXOR gate, applicable for suprposed states.
+Uses the state matrix form of two qudits.
+
+>>> statematrix = stateMat(4,[0,1,0,0],[1,0,0,0])
+>>> gXordSup(4,statematrix)
+array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+SWAP Gate
+---------
+The functions of the SWAP gate, used to swap the states of two qudits,
+akin to its qubit equivalent.
+
+swap
+****
+| ``swap(d,qudit1,qudit2)``
+
+Generalised swap gate implementation not applicable for superposition.
+
+>>> swap(4,[0,1,0,0],[1,0,0,0])
+([1, 0, 0, 0], [0, 1, 0, 0])
+
+Hadamard Gate
+-------------
+The functions of the Hadamard gate, one of the fundamental and crucial gates of quantum logic
+used to carry out superposition.
+
+hdGen
+*****
+| ``hdGen(d,qudit)``
+
+Generalised implementation for all dimensions. Can't handle superposed states.
+
+>>> hdGen(4,[0,1,0,0])
+array([ 5.00000000e-01+0.00000000e+00j,  1.63397448e-07+5.00000000e-01j,
+       -5.00000000e-01+3.26794897e-07j, -4.90192345e-07-5.00000000e-01j])
+
+hdSup
+*****
+| ``hdSup(d,qudit)``
+
+Generalised implementation for 2\ :sup:`n` dimensions. Handles superposed states.
+
+>>> hdSup(4,[0,1,0,0])
+array([ 0.5, -0.5,  0.5, -0.5])

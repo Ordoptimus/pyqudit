@@ -36,13 +36,19 @@ Build Locally
 -------------
 Alternatively, you can build the package wheel from source and then install it via pip.
 
-.. code-block::
+.. code-block:: console
 
     pip3 install --upgrade pip
     pip3 install --upgrade setuptools
     git clone https://github.com/Ordoptimus/pyqudit.git
     cd pyqudit
     python3 setup.py bdist_wheel
+
+Replace [version] with the latest version as seen in the wheel file in /bdist_wheel
+
+.. code-block:: console
+
+    pip3 install dist/pyqudit-[version]-py3-none-any.whl
 
 Use
 ---
