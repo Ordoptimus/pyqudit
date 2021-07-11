@@ -89,7 +89,46 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gates.html">Gate Functions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Pauli Matrix Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pauli Matrix Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cx-matrix">CX Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-cxd">pauli_cxd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-cxdfor">pauli_cxdFor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cx-drag-matrix">CX-Drag Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-cxdragd">pauli_cxDragd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gxor-matrix">GXOR Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-gxord">pauli_gXord</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hadamard-matrix">Hadamard Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-hd">pauli_hd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cz-matrix">CZ Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-czd">pauli_czd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#x-matrix">X Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-xd">pauli_xd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#y-matrix">Y Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-yd">pauli_yd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#z-matrix">Z Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-zd">pauli_zd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#toffoli-matrix">Toffoli Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pauli-toffoli">pauli_toffoli</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -159,6 +198,330 @@
             
   <div class="section" id="pauli-matrix-functions">
 <h1>Pauli Matrix Functions<a class="headerlink" href="#pauli-matrix-functions" title="Permalink to this headline">¶</a></h1>
+<p>Aside from the generalised qudit gates, PyQudit also includes functions which output the gate matrices.
+These matrices are useful in understanding the logic and mathematics behind a gate,
+as also in using them for building circuits.
+Parallelly, circuits and gates requiring superposition make direct use of these matrix functions.
+States ofthe qubit gates are represented by their Pauli Matrices,
+and the similarity of higher dimensionality matrices coupled with a lack of a different
+name meant our matrix functions are also termed as Pauli Matrices.</p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#cx-matrix" id="id1">CX Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-cxd" id="id2">pauli_cxd</a></p></li>
+<li><p><a class="reference internal" href="#pauli-cxdfor" id="id3">pauli_cxdFor</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cx-drag-matrix" id="id4">CX-Drag Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-cxdragd" id="id5">pauli_cxDragd</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#gxor-matrix" id="id6">GXOR Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-gxord" id="id7">pauli_gXord</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#hadamard-matrix" id="id8">Hadamard Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-hd" id="id9">pauli_hd</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cz-matrix" id="id10">CZ Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-czd" id="id11">pauli_czd</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#x-matrix" id="id12">X Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-xd" id="id13">pauli_xd</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#y-matrix" id="id14">Y Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-yd" id="id15">pauli_yd</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#z-matrix" id="id16">Z Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-zd" id="id17">pauli_zd</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#toffoli-matrix" id="id18">Toffoli Matrix</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pauli-toffoli" id="id19">pauli_toffoli</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cx-matrix">
+<h2><a class="toc-backref" href="#id1">CX Matrix</a><a class="headerlink" href="#cx-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for matrix representations of the various implementations of the CX gate.</p>
+<div class="section" id="pauli-cxd">
+<h3><a class="toc-backref" href="#id2">pauli_cxd</a><a class="headerlink" href="#pauli-cxd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_cxd(d)</span></code></div>
+</div>
+<p>Matrix representation of the formulaic version of the CX gate.
+More efficient on smaller dimensions.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_cxd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pauli-cxdfor">
+<h3><a class="toc-backref" href="#id3">pauli_cxdFor</a><a class="headerlink" href="#pauli-cxdfor" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_cxdFor(d)</span></code></div>
+</div>
+<p>Matrix representation of the custom implementation of the CX gate.
+More efficient on higher dimensions.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_cxdFor</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cx-drag-matrix">
+<h2><a class="toc-backref" href="#id4">CX-Drag Matrix</a><a class="headerlink" href="#cx-drag-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the CX-Drag gate.</p>
+<div class="section" id="pauli-cxdragd">
+<h3><a class="toc-backref" href="#id5">pauli_cxDragd</a><a class="headerlink" href="#pauli-cxdragd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_cxDragd(d)</span></code></div>
+</div>
+<p>Matrix representation of the CX-Drag gate, common for both implementations.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_cxDragd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gxor-matrix">
+<h2><a class="toc-backref" href="#id6">GXOR Matrix</a><a class="headerlink" href="#gxor-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the GXOR gate.</p>
+<div class="section" id="pauli-gxord">
+<h3><a class="toc-backref" href="#id7">pauli_gXord</a><a class="headerlink" href="#pauli-gxord" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_gXord(d)</span></code></div>
+</div>
+<p>Matrix representation of the GXOR gate, common for both implementations.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_gXord</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],</span>
+<span class="go">       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hadamard-matrix">
+<h2><a class="toc-backref" href="#id8">Hadamard Matrix</a><a class="headerlink" href="#hadamard-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the marix representations of the Hadamard gate.
+These matrices are expecially useful for understanding and working with superposition.</p>
+<div class="section" id="pauli-hd">
+<h3><a class="toc-backref" href="#id9">pauli_hd</a><a class="headerlink" href="#pauli-hd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_hd(d)</span></code></div>
+</div>
+<p>Matrix representation of the Hadamard gate, common for both implementations.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_hd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[ 0.5,  0.5,  0.5,  0.5],</span>
+<span class="go">       [ 0.5, -0.5,  0.5, -0.5],</span>
+<span class="go">       [ 0.5,  0.5, -0.5, -0.5],</span>
+<span class="go">       [ 0.5, -0.5, -0.5,  0.5]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cz-matrix">
+<h2><a class="toc-backref" href="#id10">CZ Matrix</a><a class="headerlink" href="#cz-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the CZ gate.</p>
+<div class="section" id="pauli-czd">
+<h3><a class="toc-backref" href="#id11">pauli_czd</a><a class="headerlink" href="#pauli-czd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_czd(d)</span></code></div>
+</div>
+<p>Matrix representation of the CZ gate implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pq</span><span class="o">.</span><span class="n">pauli_czd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,</span>
+<span class="go">         0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">        -1.,  0.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  0., -1.],</span>
+<span class="go">       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,</span>
+<span class="go">         0.,  1.,  0.]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="x-matrix">
+<h2><a class="toc-backref" href="#id12">X Matrix</a><a class="headerlink" href="#x-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the X gate.</p>
+<div class="section" id="pauli-xd">
+<h3><a class="toc-backref" href="#id13">pauli_xd</a><a class="headerlink" href="#pauli-xd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_xd(d)</span></code></div>
+</div>
+<p>Matrix representation of the X gate implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_xd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[0, 0, 0, 1],</span>
+<span class="go">       [1, 0, 0, 0],</span>
+<span class="go">       [0, 1, 0, 0],</span>
+<span class="go">       [0, 0, 1, 0]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="y-matrix">
+<h2><a class="toc-backref" href="#id14">Y Matrix</a><a class="headerlink" href="#y-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the Y gate.</p>
+<div class="section" id="pauli-yd">
+<h3><a class="toc-backref" href="#id15">pauli_yd</a><a class="headerlink" href="#pauli-yd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_yd(d)</span></code></div>
+</div>
+<p>Matrix representation of the Y gate implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_yd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[ 0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,</span>
+<span class="go">         0.00000000e+00+0.00000000e+00j,  1.00000000e+00-9.80384690e-07j],</span>
+<span class="go">       [ 0.00000000e+00+1.00000000e+00j,  0.00000000e+00+0.00000000e+00j,</span>
+<span class="go">         0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j],</span>
+<span class="go">       [ 0.00000000e+00+0.00000000e+00j, -1.00000000e+00+3.26794897e-07j,</span>
+<span class="go">         0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j],</span>
+<span class="go">       [ 0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,</span>
+<span class="go">        -6.53589793e-07-1.00000000e+00j,  0.00000000e+00+0.00000000e+00j]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="z-matrix">
+<h2><a class="toc-backref" href="#id16">Z Matrix</a><a class="headerlink" href="#z-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the Z gate.</p>
+<div class="section" id="pauli-zd">
+<h3><a class="toc-backref" href="#id17">pauli_zd</a><a class="headerlink" href="#pauli-zd" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_zd(d)</span></code></div>
+</div>
+<p>Matrix representation of the Z gate implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_zd</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[ 1.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,</span>
+<span class="go">         0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j],</span>
+<span class="go">       [ 0.00000000e+00+0.00000000e+00j,  3.26794897e-07+1.00000000e+00j,</span>
+<span class="go">         0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j],</span>
+<span class="go">       [ 0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,</span>
+<span class="go">        -1.00000000e+00+6.53589793e-07j,  0.00000000e+00+0.00000000e+00j],</span>
+<span class="go">       [ 0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,</span>
+<span class="go">         0.00000000e+00+0.00000000e+00j, -9.80384690e-07-1.00000000e+00j]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="toffoli-matrix">
+<h2><a class="toc-backref" href="#id18">Toffoli Matrix</a><a class="headerlink" href="#toffoli-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The functions for the matrix representations of the Toffoli gate.</p>
+<div class="section" id="pauli-toffoli">
+<h3><a class="toc-backref" href="#id19">pauli_toffoli</a><a class="headerlink" href="#pauli-toffoli" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pauli_toffoli(d)</span></code></div>
+</div>
+<p>Matrix representations of the Toffoli gate implementation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pauli_toffoli</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">array([[1, 0, 0, ..., 0, 0, 0],</span>
+<span class="go">       [0, 1, 0, ..., 0, 0, 0],</span>
+<span class="go">       [0, 0, 1, ..., 0, 0, 0],</span>
+<span class="go">       ...,</span>
+<span class="go">       [0, 0, 0, ..., 0, 0, 0],</span>
+<span class="go">       [0, 0, 0, ..., 1, 0, 0],</span>
+<span class="go">       [0, 0, 0, ..., 0, 1, 0]])</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 

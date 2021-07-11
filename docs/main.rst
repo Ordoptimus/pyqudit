@@ -21,7 +21,7 @@ useable over any dimension\ :sup:`*` as specified by the user.
 It can be used to understand the behaviour of qudit gates as also to build
 higher dimensional circuits for experimentation.
 
-:sup:`*refer exceptions`
+:sup:`*refer gate functions`
 
 Install
 -------
@@ -63,23 +63,16 @@ Sample
 
 >>> import pyqudit.qudit as pq
 >>> d = int(input('Enter Dimensions: '))
-Enter Dimensions: 4
+Enter Dimensions: 3
 >>> print("\n---CX's Pauli Matrix---")
 >>> print(pq.pauli_cxd(d))
 ---CX's Pauli Matrix---
-[[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
- [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
- [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
- [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0]
- [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]
- [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]
- [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]
- [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]
- [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0]
- [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0]
- [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]
- [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]
- [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0]
- [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]
- [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]
- [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0]]
+[[1 0 0 0 0 0 0 0 0]
+ [0 1 0 0 0 0 0 0 0]
+ [0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 0 1 0 0 0]
+ [0 0 0 1 0 0 0 0 0]
+ [0 0 0 0 1 0 0 0 0]
+ [0 0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 1 0 0]]

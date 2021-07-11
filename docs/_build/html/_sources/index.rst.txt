@@ -11,7 +11,7 @@ PyQudit Documentation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: Index
 
    gates
    pauli

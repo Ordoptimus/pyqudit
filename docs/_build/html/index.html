@@ -86,7 +86,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Index</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gates.html">Gate Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a></li>
@@ -173,7 +173,7 @@ PyQudit includes the qudit versions of fundamental quantum gates,
 useable over any dimension<sup>*</sup> as specified by the user.
 It can be used to understand the behaviour of qudit gates as also to build
 higher dimensional circuits for experimentation.</p>
-<p><sup>*refer exceptions</sup></p>
+<p><sup>*refer gate functions</sup></p>
 </div>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
@@ -209,30 +209,23 @@ It is recommeded to install in your quantum computing python environment, alongs
 <h2>Sample<a class="headerlink" href="#sample" title="Permalink to this headline">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyqudit.qudit</span> <span class="k">as</span> <span class="nn">pq</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter Dimensions: &#39;</span><span class="p">))</span>
-<span class="go">Enter Dimensions: 4</span>
+<span class="go">Enter Dimensions: 3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---CX&#39;s Pauli Matrix---&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">pauli_cxd</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 <span class="go">---CX&#39;s Pauli Matrix---</span>
-<span class="go">[[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1]</span>
-<span class="go"> [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0]]</span>
+<span class="go">[[1 0 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 1 0 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 1 0 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 1 0 0 0]</span>
+<span class="go"> [0 0 0 1 0 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 1 0 0 0 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 1 0]</span>
+<span class="go"> [0 0 0 0 0 0 0 0 1]</span>
+<span class="go"> [0 0 0 0 0 0 1 0 0]]</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents</span></p>
+<p class="caption"><span class="caption-text">Index</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gates.html">Gate Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gates.html#cx-gate">CX gate</a></li>
@@ -247,7 +240,18 @@ It is recommeded to install in your quantum computing python environment, alongs
 <li class="toctree-l2"><a class="reference internal" href="gates.html#toffoli-gate">Toffoli Gate</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pauli.html">Pauli Matrix Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#cx-matrix">CX Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#cx-drag-matrix">CX-Drag Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#gxor-matrix">GXOR Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#hadamard-matrix">Hadamard Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#cz-matrix">CZ Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#x-matrix">X Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#y-matrix">Y Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#z-matrix">Z Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pauli.html#toffoli-matrix">Toffoli Matrix</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
