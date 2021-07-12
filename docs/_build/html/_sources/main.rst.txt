@@ -1,11 +1,14 @@
 .. |PyPIVersion| image:: https://img.shields.io/pypi/v/pyqudit?logo=pypi&logoColor=yellow
+.. |Docs| image:: https://readthedocs.org/projects/pyqudit/badge/?version=latest
+            :target: https://pyqudit.readthedocs.io/en/latest/?badge=latest
+
 .. |GitLanguage| image:: https://img.shields.io/github/languages/top/Ordoptimus/pyqudit?color=yellow&logo=python
-.. |PyPIFormat| image:: https://img.shields.io/pypi/format/pyqudit
+.. |PyPIFormat| image:: https://img.shields.io/pypi/format/pyqudit?color=purple
 .. |PyPIImplementation| image:: https://img.shields.io/pypi/implementation/pyqudit?color=%23333
 .. |GitIssues| image:: https://img.shields.io/github/issues/Ordoptimus/pyqudit?color=blue&logo=github
-.. |License| image:: https://img.shields.io/github/license/Ordoptimus/pyqudit
+.. |License| image:: https://img.shields.io/github/license/Ordoptimus/pyqudit?color=skyblue
 
-|PyPIVersion| |GitLanguage| |PyPIFormat| |PyPIImplementation| |GitIssues| |License|
+|PyPIVersion| |Docs| |GitLanguage| |PyPIFormat| |PyPIImplementation| |GitIssues| |License|
 
 PyQudit is a Python package for using generalised and universal versions of quantum gates, in N-dimensions. Enables building simple quantum circuit simulations on qudit logic using higher dimensional gates.
 
