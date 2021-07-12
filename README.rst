@@ -1,4 +1,4 @@
 PyQudit
 =======
 
-.. include:: docs/main.rst
+.. include:: /docs/main.rst
