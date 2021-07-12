@@ -23,7 +23,7 @@ copyright = '2021, Aarya Bodhankar, Rutuja Andhale, Nikita Agrawal'
 author = 'Aarya Bodhankar'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.5'
+release = '0.0.6'
 
 
 # -- General configuration ---------------------------------------------------
