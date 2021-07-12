@@ -1,18 +1,18 @@
 import setuptools
 
-with open("README.md", "r") as fh:  #removed encoding="utf-8"
+with open("README.rst", "r") as fh:  #removed encoding="utf-8"
     long_description = fh.read()
 
 requirements = ["numpy"]
 
 setuptools.setup(
     name="pyqudit",
-    version="0.0.5",
-    author="Ordoptimus, The Quanteam",
+    version="0.0.6",
+    author="Ordoptimus, Rutuja343, kimyona-crypt",
     author_email="orodaux@gmail.com",
     description="Quantum Computing package. Use qudit gates and build simple N-D circuits.",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     url="https://github.com/ordoptimus/pyqudit",
     project_urls={
         "Bug Tracker": "https://github.com/ordoptimus/pyqudit/issues"
