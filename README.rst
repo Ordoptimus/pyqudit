@@ -11,6 +11,7 @@ PyQudit
 .. |GitIssues| image:: https://img.shields.io/github/issues/Ordoptimus/pyqudit?color=blue&logo=github
                 :target: https://github.com/Ordoptimus/pyqudit/issues
 .. |License| image:: https://img.shields.io/github/license/Ordoptimus/pyqudit?color=skyblue
+                :target: https://github.com/Ordoptimus/pyqudit/blob/main/LICENSE
 .. _official documentation: https://pyqudit.readthedocs.io
 
 |PyPIVersion| |Docs| |GitLanguage| |PyPIFormat| |PyPIImplementation| |GitIssues| |License|
