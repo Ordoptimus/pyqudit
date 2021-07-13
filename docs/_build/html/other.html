@@ -93,6 +93,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Other Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#convert2ket">Convert2Ket</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#convert2decimal">Convert2Decimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statematrix">StateMatrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#identitytensorproduct">IdentityTensorProduct</a></li>
 </ul>
 </li>
@@ -173,7 +174,8 @@ They are used within and in tandem with the gate and matrix functions.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#convert2ket" id="id1">Convert2Ket</a></p></li>
 <li><p><a class="reference internal" href="#convert2decimal" id="id2">Convert2Decimal</a></p></li>
-<li><p><a class="reference internal" href="#identitytensorproduct" id="id3">IdentityTensorProduct</a></p></li>
+<li><p><a class="reference internal" href="#statematrix" id="id3">StateMatrix</a></p></li>
+<li><p><a class="reference internal" href="#identitytensorproduct" id="id4">IdentityTensorProduct</a></p></li>
 </ul>
 </div>
 <div class="section" id="convert2ket">
@@ -198,8 +200,19 @@ They are used within and in tandem with the gate and matrix functions.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="statematrix">
+<h2><a class="toc-backref" href="#id3">StateMatrix</a><a class="headerlink" href="#statematrix" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">stateMat(d,qudit1,qudit2)</span></code></div>
+</div>
+<p>A function which facilitates conversion of the states of two qudits in Ket form to a state matrix.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="identitytensorproduct">
-<h2><a class="toc-backref" href="#id3">IdentityTensorProduct</a><a class="headerlink" href="#identitytensorproduct" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">IdentityTensorProduct</a><a class="headerlink" href="#identitytensorproduct" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">tensorIGt(d,gate_symbol)</span></code></div>
 </div>

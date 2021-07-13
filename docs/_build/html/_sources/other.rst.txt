@@ -26,6 +26,15 @@ A function which enables qudit conversion from ket form to decimal form.
 >>> pq.convDec(4,[0,1,0,0])
 1
 
+StateMatrix
+-----------
+| ``stateMat(d,qudit1,qudit2)``
+
+A function which facilitates conversion of the states of two qudits in Ket form to a state matrix.
+
+>>> stateMat(4,[0,1,0,0],[1,0,0,0])
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 IdentityTensorProduct
 ---------------------
 | ``tensorIGt(d,gate_symbol)``

@@ -74,7 +74,7 @@ Sample
 >>> d = int(input('Enter Dimensions: '))
 Enter Dimensions: 3
 >>> print("\n---CX's Pauli Matrix---")
->>> print(pq.pauli_cxd(d))
+>>> print(pq.CXd_pauli(d))
 ---CX's Pauli Matrix---
 [[1 0 0 0 0 0 0 0 0]
  [0 1 0 0 0 0 0 0 0]

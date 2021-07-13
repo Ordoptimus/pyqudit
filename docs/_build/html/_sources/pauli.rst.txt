@@ -16,14 +16,14 @@ CX Matrix
 ---------
 The functions for matrix representations of the various implementations of the CX gate.
 
-pauli_cxd
+CXd_pauli
 *********
-| ``pauli_cxd(d)``
+| ``CXd_pauli(d)``
 
 Matrix representation of the formulaic version of the CX gate.
 More efficient on smaller dimensions.
 
->>> pauli_cxd(4)
+>>> CXd_pauli(4)CXd_cstm_pauli
 array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -41,14 +41,14 @@ array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]])
 
-pauli_cxdFor
-************
-| ``pauli_cxdFor(d)``
+CXd_cstm_pauli
+**************
+| ``CXd_cstm_pauli(d)``
 
 Matrix representation of the custom implementation of the CX gate.
 More efficient on higher dimensions.
 
->>> pauli_cxdFor(4)
+>>> CXd_cstm_pauli(4)
 array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -70,13 +70,13 @@ CX-Drag Matrix
 --------------
 The functions for the matrix representations of the CX-Drag gate.
 
-pauli_cxDragd
-*************
-| ``pauli_cxDragd(d)``
+CXDrag_pauli
+************
+| ``CXDrag_pauli(d)``
 
 Matrix representation of the CX-Drag gate, common for both implementations.
 
->>> pauli_cxDragd(4)
+>>> CXDrag_pauli(4)
 array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -98,13 +98,13 @@ GXOR Matrix
 -----------
 The functions for the matrix representations of the GXOR gate.
 
-pauli_gXord
-***********
-| ``pauli_gXord(d)``
+GXOR_pauli
+**********
+| ``GXOR_pauli(d)``
 
 Matrix representation of the GXOR gate, common for both implementations.
 
->>> pauli_gXord(4)
+>>> GXOR_pauli(4)
 array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -127,13 +127,13 @@ Hadamard Matrix
 The functions for the marix representations of the Hadamard gate.
 These matrices are expecially useful for understanding and working with superposition.
 
-pauli_hd
+Hd_pauli
 ********
-| ``pauli_hd(d)``
+| ``Hd_pauli(d)``
 
 Matrix representation of the Hadamard gate, common for both implementations.
 
->>> pauli_hd(4)
+>>> Hd_pauli(4)
 array([[ 0.5,  0.5,  0.5,  0.5],
        [ 0.5, -0.5,  0.5, -0.5],
        [ 0.5,  0.5, -0.5, -0.5],
@@ -143,13 +143,13 @@ CZ Matrix
 ---------
 The functions for the matrix representations of the CZ gate.
 
-pauli_czd
+CZd_pauli
 *********
-| ``pauli_czd(d)``
+| ``CZd_pauli(d)``
 
 Matrix representation of the CZ gate implementation.
 
->>> pq.pauli_czd(4)
+>>> pq.CZd_pauli(4)
 array([[ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,
          0.,  0.,  0.],
        [ 0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,
@@ -187,13 +187,13 @@ X Matrix
 --------
 The functions for the matrix representations of the X gate.
 
-pauli_xd
+Xd_pauli
 ********
-| ``pauli_xd(d)``
+| ``Xd_pauli(d)``
 
 Matrix representation of the X gate implementation.
 
->>> pauli_xd(4)
+>>> Xd_pauli(4)
 array([[0, 0, 0, 1],
        [1, 0, 0, 0],
        [0, 1, 0, 0],
@@ -203,13 +203,13 @@ Y Matrix
 --------
 The functions for the matrix representations of the Y gate.
 
-pauli_yd
+Yd_pauli
 ********
-| ``pauli_yd(d)``
+| ``Yd_pauli(d)``
 
 Matrix representation of the Y gate implementation.
 
->>> pauli_yd(4)
+>>> Yd_pauli(4)
 array([[ 0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,
          0.00000000e+00+0.00000000e+00j,  1.00000000e+00-9.80384690e-07j],
        [ 0.00000000e+00+1.00000000e+00j,  0.00000000e+00+0.00000000e+00j,
@@ -223,13 +223,13 @@ Z Matrix
 --------
 The functions for the matrix representations of the Z gate.
 
-pauli_zd
+Zd_pauli
 ********
-| ``pauli_zd(d)``
+| ``Zd_pauli(d)``
 
 Matrix representation of the Z gate implementation.
 
->>> pauli_zd(4)
+>>> Zd_pauli(4)
 array([[ 1.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j,
          0.00000000e+00+0.00000000e+00j,  0.00000000e+00+0.00000000e+00j],
        [ 0.00000000e+00+0.00000000e+00j,  3.26794897e-07+1.00000000e+00j,
@@ -243,13 +243,13 @@ Toffoli Matrix
 --------------
 The functions for the matrix representations of the Toffoli gate.
 
-pauli_toffoli
-*************
-| ``pauli_toffoli(d)``
+Toffolid_pauli
+**************
+| ``Toffolid_pauli(d)``
 
 Matrix representations of the Toffoli gate implementation.
 
->>> pauli_toffoli(4)
+>>> Toffolid_pauli(4)
 array([[1, 0, 0, ..., 0, 0, 0],
        [0, 1, 0, ..., 0, 0, 0],
        [0, 0, 1, ..., 0, 0, 0],
