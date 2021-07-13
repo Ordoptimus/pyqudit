@@ -45,7 +45,7 @@ CXd_cstm
 | ``CXd_cstm(d,statematrix)``
 
 Custom, more efficient formulaic implementation of CX with same capabilities as ``CXd``.
-Recommended for logic involving higher dimensions. Also involves state matrix form.
+Recommended for logic involving lower dimensions. Also involves state matrix form.
 
 >>> statematrix = stateMat(4,[0,1,0,0],[1,0,0,0])
 >>> CXd_cstm(4,statematrix)
@@ -96,7 +96,7 @@ GXOR
 ****
 | ``GXOR(d,statematrix)``
 
-Generalised implemenr=tation of the GXOR gate, applicable for suprposed states.
+Generalised implementation of the GXOR gate, applicable for superposed states.
 Uses the state matrix form of two qudits.
 
 >>> statematrix = stateMat(4,[0,1,0,0],[1,0,0,0])

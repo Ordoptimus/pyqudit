@@ -23,11 +23,11 @@ def stateMat(d,qt1k,qt2k):
 #Tensor product of I and (H or X or Z)
 def tensorIGt(d,gate):
   if gate.upper() == 'H':
-    gt = pauli_hd(d)
+    gt = Hd_pauli(d)
   elif gate.upper() == 'X':
-    gt = pauli_xd(d)
+    gt = Xd_pauli(d)
   elif gate.upper() == 'Z':
-    gt = pauli_zd(d)
+    gt = Zd_pauli(d)
   else:
     print('Give Valid Input')
     return 0
@@ -46,39 +46,39 @@ def tensorIGt(d,gate):
 
 #Controlled Not Gate
 # qt1 is Control Bit while qt2 is Target bit
-def cxdGen(d,qtk1,qtk2):
+def CXd_dis(d,qtk1,qtk2):
   qt1 = convDec(d,qtk1)
   qt2 = convDec(d,qtk2)
   res = convKet(d,(qt1+qt2)%d)
   return  res
 
 #Controlled Not_Drag gate
-def cxdDragGen(d,qtk1,qtk2):
+def CXDrag_dis(d,qtk1,qtk2):
   qt1 = convDec(d,qtk1)
   qt2 = convDec(d,qtk2)
   res = convKet(d,(qt2-qt1)%d)
   return  res
 
 #GXOR gate
-def gxorGen(d,qtk1,qtk2):
+def GXOR_dis(d,qtk1,qtk2):
   qt1 = convDec(d,qtk1)
   qt2 = convDec(d,qtk2)
   res = convKet(d,(qt1-qt2)%d)
   return  res
 
 #Swap gate implementation using CNOT,CNOTDrag and GXOR Gate for D Dimensions
-def swap(d,qt1,qt2):
+def SWAPd(d,qt1,qt2):
     #Implementation of CNOTDrag gate where control Bit is qt2 while target Bit is qt1
-    qt1=cxdDragGen(d,qt2,qt1)
+    qt1=CXDrag_dis(d,qt2,qt1)
     #Implementation of CNOT gate where control Bit is qt1 while target Bit is qt2
-    qt2=cxdGen(d,qt1,qt2)
+    qt2=CXd_dis(d,qt1,qt2)
     #Implementation of GXOR gate
-    qt1=gxorGen(d,qt2,qt1)
+    qt1=GXOR_dis(d,qt2,qt1)
     return qt1,qt2
 
 #Generalized Hadamard for any dimensions but can't take superposed states
 #since it first convert states into decimal and then use it in mathematical formula
-def hdGen(d,qtk):
+def Hd_dis(d,qtk):
     j = convDec(d,qtk)
     theta = complex(0,(2*3.141592)/d)
     w=np.exp(theta)
@@ -92,7 +92,7 @@ def hdGen(d,qtk):
     return h1m*hc
 
 #CNOT implementation With NEW Formula
-def pauli_cxdFor(d):
+def CXd_dis_pauli(d):
   #start = time.time()
   cnot = []
   for i in range(d*d):
@@ -103,7 +103,7 @@ def pauli_cxdFor(d):
   #print(f"Runtime of the program is {end - start}")
   return np.array(cnot)
 
-def pauli_cxd(d):
+def CXd_pauli(d):
   #start = time.time()
   size = d * d
   pau = list([0]*size for i in range(size))
@@ -117,7 +117,7 @@ def pauli_cxd(d):
   #print(f"Runtime of the program is {end - start}")
   return np.array(pau)
 
-def pauli_cxDragd(d):
+def CXDrag_pauli(d):
   size = d * d
   pau = list([0]*size for i in range(size))
   temp = 0
@@ -128,7 +128,7 @@ def pauli_cxDragd(d):
     temp += d
   return np.array(pau)
 
-def pauli_gXord(d):
+def GXOR_pauli(d):
   size = d * d
   pau = list([0]*size for i in range(size))
   temp = 0
@@ -139,13 +139,13 @@ def pauli_gXord(d):
     temp += d
   return np.array(pau)
 
-def pauli_xd(d):
+def Xd_pauli(d):
   pau = list([0]*d for i in range(d))
   for i in range(d):
     pau[(i+1) % d][i] = 1
   return np.array(pau)
 
-def pauli_zd(d):
+def Zd_pauli(d):
   theta = complex(0,(2*3.141592)/d)
   w=np.exp(theta)
   pau = list([0]*d for i in range(d))
@@ -154,11 +154,11 @@ def pauli_zd(d):
     pau[i][i] = c
   return np.array(pau)
 
-def pauli_yd(d):
+def Yd_pauli(d):
   con = complex(0,1)
-  return con*(np.dot(pauli_xd(d),pauli_zd(d)))
+  return con*(np.dot(Xd_pauli(d),Zd_pauli(d)))
 
-def pauli_toffoli(d):
+def Toffolid_pauli(d):
   size = d * d * d
   pau = list([0]*size for i in range(size))
   temp = 0
@@ -177,46 +177,46 @@ def hm(d):
     h1m = hm(d/2)
     return np.concatenate((np.concatenate((h1m,h1m),axis=1),(np.concatenate((h1m,(-1*h1m)),axis=1))),axis=0)
 
-def pauli_hd(d):
+def Hd_pauli(d):
   return (1/math.sqrt(d))*hm(d)
 
-def pauli_czd(d):
-  hd = pauli_hd(d)
+def CZd_pauli(d):
+  hd = Hd_pauli(d)
   nih = np.array(tensorIGt(d,'H'))
-  cnot = pauli_cxd(d)
+  cnot = CXd_pauli(d)
   res = np.dot(nih, cnot)
   pau_cz = np.dot(res,nih)
   return pau_cz
 
 #Pauli matrix representation of Hadamard gate
 #Only for 2^n dimesions but works with superposed states
-def hdSup(d,qtk):
-  return np.dot(pauli_hd(d),qtk)
+def Hd(d,qtk):
+  return np.dot(Hd_pauli(d),qtk)
 
-def czdSup(d,states):
-  return (np.dot(pauli_czd(d),states))
+def CZd(d,states):
+  return (np.dot(CZd_pauli(d),states))
 
 #Pauli Matrix representation for X and Z gate:
 #works for all dimesions also works on superposed states
-def xdSup(d,qtk):
-  return np.dot(pauli_xd(d),qtk)
+def Xd(d,qtk):
+  return np.dot(Xd_pauli(d),qtk)
 
-def zdSup(d,qtk):
-  return (np.dot(pauli_zd(d),qtk))
+def Zd(d,qtk):
+  return (np.dot(Zd_pauli(d),qtk))
 
-def ydSup(d,qtk):
-  return (np.dot(pauli_yd(d),qtk))
+def Yd(d,qtk):
+  return (np.dot(Yd_pauli(d),qtk))
 
 #Using formula of Cnot
-def cxdSup(d,states):
+def CXd(d,states):
   #start = time.time()
-  res = np.dot(pauli_cxd(d),states)
+  res = np.dot(CXd_pauli(d),states)
   #end = time.time()
   #print(f"Runtime of the program is {end - start}")
   return res
 
 #Using NEW formula of Cnot
-def cxdSupFor(d,states):
+def CXd_cstm(d,states):
   #start = time.time()
   state = np.array([0.0] * (d*d))
   for i in range(d*d):
@@ -227,14 +227,14 @@ def cxdSupFor(d,states):
   #print(f"Runtime of the program is {end - start}")
   return list(state)
 
-def cxDragdSup(d,qtk):
-  return (np.dot(pauli_cxDragd(d),qtk))
+def CXDrag(d,qtk):
+  return (np.dot(CXDrag_pauli(d),qtk))
 
-def gXordSup(d,qtk):
-  return (np.dot(pauli_gXord(d),qtk))
+def GXOR(d,qtk):
+  return (np.dot(GXOR_pauli(d),qtk))
 
 #Toffoli Gate
-def toffoliSup(d,qtk1,qtk2,qtk3):
+def Toffolid(d,qtk1,qtk2,qtk3):
   t = stateMat(d,qtk2,qtk3)
   res = np.array(stateMat(d,qtk1,t))
-  return np.dot(pauli_toffoli(d),res)
+  return np.dot(Toffolid_pauli(d),res)

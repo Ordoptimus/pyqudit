@@ -7,7 +7,7 @@ requirements = ["numpy"]
 
 setuptools.setup(
     name="pyqudit",
-    version="0.0.6",
+    version="1.0.1",
     author="Ordoptimus, Rutuja343, kimyona-crypt",
     author_email="orodaux@gmail.com",
     description="Quantum Computing package. Use qudit gates and build simple N-D circuits.",

@@ -24,7 +24,7 @@ Concept
 -------
 Mainstream QuantumComputing uses qubits which operate in a two dimensional
 Hilber space. Qudits are their higher dimensional equivalents with better
-informaiton density and potential for hgher efficiency.
+informaiton density and potential for higher efficiency.
 PyQudit includes the qudit versions of fundamental quantum gates,
 useable over any dimension\ :sup:`*` as specified by the user.
 It can be used to understand the behaviour of qudit gates as also to build

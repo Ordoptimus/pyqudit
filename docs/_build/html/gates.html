@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Gate Functions &mdash; PyQudit 0.0.6 documentation</title>
+  <title>Gate Functions &mdash; PyQudit 1.0.1 documentation</title>
   
 
   
@@ -311,7 +311,7 @@ which can be obtained using the <code class="docutils literal notranslate"><span
 <div class="line"><code class="docutils literal notranslate"><span class="pre">CXd_cstm(d,statematrix)</span></code></div>
 </div>
 <p>Custom, more efficient formulaic implementation of CX with same capabilities as <code class="docutils literal notranslate"><span class="pre">CXd</span></code>.
-Recommended for logic involving higher dimensions. Also involves state matrix form.</p>
+Recommended for logic involving lower dimensions. Also involves state matrix form.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">statematrix</span> <span class="o">=</span> <span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">CXd_cstm</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">statematrix</span><span class="p">)</span>
 <span class="go">[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</span>
@@ -370,7 +370,7 @@ such as SWAP or the Hermetian CX.</p>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">GXOR(d,statematrix)</span></code></div>
 </div>
-<p>Generalised implemenr=tation of the GXOR gate, applicable for suprposed states.
+<p>Generalised implementation of the GXOR gate, applicable for superposed states.
 Uses the state matrix form of two qudits.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">statematrix</span> <span class="o">=</span> <span class="n">stateMat</span><span class="p">(</span><span class="mi">4</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">GXOR</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">statematrix</span><span class="p">)</span>
